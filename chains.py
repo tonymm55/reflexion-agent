@@ -51,10 +51,11 @@ revise_instructions = """Revise your previous answer using the new information.
             - [1] https://example.com
             - [2] https://example.com
         - You should use the previous critique to remove superfluous information for your answer and make SURE it is not more than 250 words."""
-        
+
+# Will force the ReviseAnswer class        
 revisor = actor_prompt_template.partial(
     first_instruction=revise_instructions
-) | llm.bin_tools(tools=[ReviseAnswer], tool_choice="ReviseAnswer")
+) | llm.bind_tools(tools=[ReviseAnswer], tool_choice="ReviseAnswer")
 
 
 if __name__ == "__main__":
