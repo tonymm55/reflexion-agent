@@ -17,10 +17,11 @@ class AnswerQuestion(BaseModel):
         description="1-3 search queries for researching improvements to address the critique of your current answer."
     )
 
-# Inherits the properties of AnswerQuestion as you pass the class as an arg + refs  
+
+# Forcing citation in the model encourages grounded responses
 class ReviseAnswer(AnswerQuestion):
     """Revise your original answer to your question."""
-    
+
     references: List[str] = Field(
-        description="Citations motivating your updated answer"
+        description="Citations motivating your updated answer."
     )
